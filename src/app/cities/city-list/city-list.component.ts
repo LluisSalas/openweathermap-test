@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { City } from '../city.model';
+import { CityService } from '../city.service';
 
 @Component({
   selector: 'app-city-list',
@@ -9,15 +10,12 @@ import { City } from '../city.model';
 })
 export class CityListComponent implements OnInit {
 
-  cities: City[] = [
-    new City("3124724", "Santiago", ""),
-    new City("3435910", "Buenos Aires", ""),
-    new City("3936456", "Lima", ""),
-    new City("3448439", "Sao Pablo", ""),
-  ];
+  cities: City[];
 
-  constructor() { }
+  constructor(private cityService: CityService) {
+  }
 
   ngOnInit() {
+    this.cities = this.cityService.getCities();
   }
 }
