@@ -1,1 +1,12 @@
-<app-city-item></app-city-item>
+<div class="row">
+    <div class="col-md-12">
+        <a href="#" class="list-group-item clearfix" *ngFor="let city of cities">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{city.name}}</h4>
+            </div>
+            <div class="pull-right">
+                <span class="list-group-item-text">{{city.temp}}</span>
+            </div>
+        </a>
+    </div>
+</div>
