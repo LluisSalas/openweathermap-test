@@ -14,5 +14,4 @@ export class CityItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
