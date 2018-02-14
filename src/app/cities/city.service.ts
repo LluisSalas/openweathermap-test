@@ -1,3 +1,6 @@
+// Servicio encargado de almacenar la info de las ciudades.
+// Proporciona metodos para recuperarlas y pasarlas entre components
+
 import { EventEmitter } from '@angular/core';
 
 import { City } from './city.model';
