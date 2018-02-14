@@ -14,4 +14,8 @@ export class CityItemComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onSelected() {
+    
+  }
 }

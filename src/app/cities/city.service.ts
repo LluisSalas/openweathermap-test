@@ -1,6 +1,11 @@
+import { EventEmitter } from '@angular/core';
+
 import { City } from './city.model';
 
 export class CityService {
+
+    citySelected = new EventEmitter<City>();
+
     private cities: City[] = [
         new City("3124724", "Santiago", ""),
         new City("3435910", "Buenos Aires", ""),
