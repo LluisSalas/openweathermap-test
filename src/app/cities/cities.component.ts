@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { City } from './city.model';
 import { CityService } from './city.service';
 
 @Component({
@@ -8,10 +9,16 @@ import { CityService } from './city.service';
   providers: [CityService]
 })
 export class CitiesComponent implements OnInit {
+  selectedCity: City;
 
-  constructor() { }
+  constructor(private cityService: CityService) { }
 
   ngOnInit() {
+    this.cityService.citySelected
+      .subscribe(
+        (city: City) => {
+          this.selectedCity = city;
+        }
+      );
   }
-
 }
