@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 
 import { City } from '../../city.model';
 import { CityService } from '../../city.service';
@@ -17,7 +18,10 @@ export class CityItemComponent implements OnInit {
   ngOnInit() {
     this.cityApiService.getCityTime(this.city.id)
       .subscribe(
-        (response) => console.log(response),
+        (response: Response) => {
+          const data = response.json();
+          this.city.temp = data.main.temp;
+        },
         (error) => console.log(error)
       );
   }

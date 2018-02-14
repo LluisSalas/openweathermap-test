@@ -5,7 +5,7 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class CityApiService {
     private apiKey = "83e97c1a598480455edab0056547e221";
-    private basePath = "api.openweathermap.org/data/2.5/weather?";
+    private basePath = "http://api.openweathermap.org/data/2.5/weather?";
 
     constructor(private http: Http) {
     }
@@ -13,10 +13,5 @@ export class CityApiService {
     getCityTime(id: string) {
         const path = this.basePath + "id=" + id + "&units=metric&appid=" + this.apiKey;
         return this.http.get(path);
-           /* .subscribe(
-                (response: Response) => {
-                    const cityTime  = response.json();
-                }
-            );*/
     }
 }
