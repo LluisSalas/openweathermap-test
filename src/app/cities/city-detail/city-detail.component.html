@@ -1,17 +1,26 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2>
-      {{ city.name }} <span class="pull-right">{{  city.temp  ? city.temp.temp : "" }}</span>
-    </h2>
-  </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-      <h3>Historial temperaturas</h3>
-      <ul>
-        <li *ngFor="let temp of city.tempHistorial">
-          {{temp.creationDate | date:'dd/MM/yyyy HH:mm:ss' + ": " + temp.temp}}
-        </li>
-      </ul>
+<div class="city-detail">
+    <div class="city-detail__header">
+        <div class="row">
+            <div class="col-md-12">
+              <img class="city-detail__image" src="" alt="{{ city.name }}">
+              <div class="city-detail__name-box">
+                <h2 class="city-detail__name">
+                  {{ city.name }} <span class="city-detail__temp">{{  city.temp  ? city.temp.temp : "" }} C<sup>º</sup></span>
+                </h2>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="city-detail__historial">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="city-detail__historial-header">Historial temperaturas</h3>
+          <ul class="city-detail__historial-list">
+            <li class="city-detail__historial-item" *ngFor="let temp of city.tempHistorial">
+              {{temp.creationDate | date:'dd/MM/yyyy HH:mm:ss' + ": " + temp.temp}}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 </div>
