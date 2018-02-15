@@ -22,10 +22,16 @@ export class CityItemComponent implements OnInit {
     setInterval(() => { this.getCityTime(); }, 180000);
   } 
 
+  // Metodo para obtener temperatura
   getCityTime() {
     this.cityApiService.getCityTime(this.city.id)
         .subscribe(
-          (response) => this.city.temp = new CityTemp(response.main.temp, new Date()),
+          (response) => {
+            // Actualizamos temperatura
+            this.city.temp = new CityTemp( Math.round(response.main.temp), new Date());
+            // Añadimos al historial
+            this.city.tempHistorial.unshift( this.city.temp );
+          },
           (error) => console.log(error)
         )
   }
