@@ -1,12 +1,12 @@
 <a 
     href="#" 
-    class="list-group-item clearfix"
+    class="city-item clearfix"
     (click)="onSelected()">
-    <div class="pull-left">
-        <h4 class="list-group-item-heading">{{city.name}}</h4>
+    <div class="city-item__box-name">
+        <h4 class="city-item__name">{{city.name}}</h4>
     </div>
-    <div class="pull-right">
-        <span *ngIf="city.temp;loading" class="list-group-item-text">{{ city.temp.temp }}</span>
+    <div class="city-item__box-temp">
+        <span *ngIf="city.temp;loading" class="city-item__temp">{{ city.temp.temp }} C<sup>º</sup></span>
         <ng-template #loading>
             Cargando...
         </ng-template>

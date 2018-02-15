@@ -1,13 +1,15 @@
-<div class="row">
-  <div class="col-md-5">
-    <app-city-list></app-city-list>
-  </div>
-  <div class="col-md-7">
-    <app-city-detail
-      *ngIf="selectedCity; else infoText"
-      [city]="selectedCity"></app-city-detail>
-    <ng-template #infoText>
-      <p>Por favor selecciona una Ciudad!</p>
-    </ng-template>
-  </div>
-</div>
+<main class="cities">
+    <div class="row">
+      <div class="col-md-5">
+        <app-city-list></app-city-list>
+      </div>
+      <div class="col-md-7">
+        <app-city-detail
+          *ngIf="selectedCity; else infoText"
+          [city]="selectedCity"></app-city-detail>
+        <ng-template #infoText>
+          <p>Por favor selecciona una Ciudad!</p>
+        </ng-template>
+      </div>
+    </div>
+</main>
