@@ -1,6 +1,8 @@
 // Servicio encargado de recuperar el tiempo de las ciudades de la API externa
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CityApiService {
@@ -12,6 +14,16 @@ export class CityApiService {
 
     getCityTime(id: string) {
         const path = this.basePath + "id=" + id + "&units=metric&appid=" + this.apiKey;
-        return this.http.get(path);
+        return this.http.get(path)
+            .map(
+                (response: Response) => {
+                    return response.json();
+                }
+            )
+            .catch(
+                (error: Response) => {
+                    return Observable.throw(error.json());
+                }
+            );
     }
 }

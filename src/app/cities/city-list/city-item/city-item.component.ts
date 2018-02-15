@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { City } from '../../city.model';
 import { CityService } from '../../city.service';
 import { CityApiService } from '../../city-api.service';
 
-@Component({
+@Component({ 
   selector: 'app-city-item',
   templateUrl: './city-item.component.html',
   styleUrls: ['./city-item.component.css']
@@ -13,17 +12,21 @@ import { CityApiService } from '../../city-api.service';
 export class CityItemComponent implements OnInit {
   @Input() city: City;
 
-  constructor(private cityService: CityService, private cityApiService: CityApiService) { }
+  constructor(private cityService: CityService, private cityApiService: CityApiService) {  }
 
   ngOnInit() {
+    // Obtenemos temperatura
+    this.getCityTime();
+    // Iniciamos intervalo para obtener temperatura cada 3 minutos
+    setInterval(() => { this.getCityTime(); }, 180000);
+  } 
+
+  getCityTime() {
     this.cityApiService.getCityTime(this.city.id)
-      .subscribe(
-        (response: Response) => {
-          const data = response.json();
-          this.city.temp = data.main.temp;
-        },
-        (error) => console.log(error)
-      );
+        .subscribe(
+          (response) => this.city.temp = response.main.temp,
+          (error) => console.log(error)
+        )
   }
 
   onSelected() {
