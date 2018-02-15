@@ -12,6 +12,6 @@ export class City {
         this.id = id;
         this.name = name;
         this.imagePath = imagePath;
-        this.temp = new CityTemp(0, new Date());
+        //this.temp = new CityTemp(0, new Date());
     }
 }
