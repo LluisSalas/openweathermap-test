@@ -6,7 +6,7 @@
     <app-city-detail
       *ngIf="selectedCity; else infoText"
       [city]="selectedCity"></app-city-detail>
-    <ng-template>
+    <ng-template #infoText>
       <p>Por favor selecciona una Ciudad!</p>
     </ng-template>
   </div>

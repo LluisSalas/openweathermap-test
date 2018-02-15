@@ -36,7 +36,13 @@ export class CityItemComponent implements OnInit {
         )
   }
 
-  onSelected() {
+  // Metodo para enviar item a otros componentes
+  sendItem() {
     this.cityService.citySelected.emit(this.city);
+  }
+
+  // Eventos
+  onSelected() {
+    this.sendItem();
   }
 }
