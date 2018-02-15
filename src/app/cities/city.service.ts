@@ -11,9 +11,9 @@ export class CityService {
 
     private cities: City[] = [
         new City("3124724", "Santiago", ""),
-       /* new City("3435910", "Buenos Aires", ""),
+        new City("3435910", "Buenos Aires", ""),
         new City("3936456", "Lima", ""),
-        new City("3448439", "Sao Pablo", ""),*/
+        new City("3448439", "Sao Pablo", ""),
     ];
 
     getCities() {
